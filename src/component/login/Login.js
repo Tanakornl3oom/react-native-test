@@ -1,15 +1,28 @@
-import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableHighlight
+} from "react-native";
 
-export default class Login extends React.Component {
+import SplashScreen from "react-native-splash-screen";
+
+export default class Login extends Component {
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Add Login here!</Text>
-        <Button
-          title="go to home"
+        <TouchableHighlight
+          style={styles.button}
           onPress={() => this.props.navigation.navigate("home")}
-        />
+        >
+          <Text>Login</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -21,5 +34,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
+  },
+  button: {
+    borderRadius: 3,
+    paddingTop: 30,
+    paddingBottom: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
+    backgroundColor: "#0391D7"
   }
 });
