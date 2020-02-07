@@ -1,7 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, Alert } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Alert,
+  AppState,
+  Platform,
+  TouchableHighlight
+} from "react-native";
 import TouchID from "react-native-touch-id";
-
+import Notification from "../notification/Notification";
+import PushNotification from "react-native-push-notification";
 export default class Home extends React.Component {
   componentDidMount() {
     TouchID.authenticate(
@@ -18,10 +28,26 @@ export default class Home extends React.Component {
     });
   }
 
+  sendNotification() {
+    let date = new Date(Date.now() + 5 * 1000);
+
+    PushNotification.localNotificationSchedule({
+      message: "My Notification Message",
+      date
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text>Add friends here!</Text>
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => this.sendNotification()}
+        >
+          <Text>send Notification</Text>
+        </TouchableHighlight>
+        <Notification />
       </View>
     );
   }
@@ -33,6 +59,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
+  },
+  button: {
+    borderRadius: 3,
+    paddingTop: 30,
+    paddingBottom: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
+    backgroundColor: "#0391D7"
   }
 });
 
