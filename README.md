@@ -1,16 +1,21 @@
 # react-native-test
 
-run on ios
+## run on ios
 
 - install xcode
 - install watchman ( yarn global add watchman )
 - install react-native-cli ( yarn global add react-native-cli )
 - cd ios && pod install
 - run ( react-native run-ios --device / --emulator )
-*** should add account in xcode and change signing & capabilites in xcode to be your account
+  \*\*\* should add account in xcode and change signing & capabilites in xcode to be your account
 
+## clear cache pod ios
 
-# source
+- pod deintegrate
+- pod install
+
+## source
+
 - https://github.com/zo0r/react-native-push-notification
 - https://medium.com/differential/how-to-setup-push-notifications-in-react-native-ios-android-30ea0131355e
 - https://github.com/react-native-community/react-native-push-notification-ios
