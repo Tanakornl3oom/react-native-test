@@ -19,18 +19,18 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    // TouchID.authenticate(
-    //   "Unlock with your fingerprint",
-    //   optionalConfigObject
-    // ).catch(error => {
-    //   console.log(error);
-    //   Alert.alert("Authentication Failed", "", [
-    //     {
-    //       text: "OK",
-    //       onPress: () => this.props.navigation.navigate("login")
-    //     }
-    //   ]);
-    // });
+    TouchID.authenticate(
+      "Unlock with your fingerprint",
+      optionalConfigObject
+    ).catch(error => {
+      console.log(error);
+      Alert.alert("Authentication Failed", "", [
+        {
+          text: "OK",
+          onPress: () => this.props.navigation.navigate("login")
+        }
+      ]);
+    });
   }
 
   GetGridViewItem(item) {
