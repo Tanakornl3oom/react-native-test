@@ -21,7 +21,7 @@ export default class Login extends Component {
           style={styles.button}
           onPress={() => this.props.navigation.navigate("home")}
         >
-          <Text>Login</Text>
+          <Text style={styles.text}>Login</Text>
         </TouchableHighlight>
       </View>
     );
@@ -42,5 +42,12 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
     paddingRight: 30,
     backgroundColor: "#0391D7"
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    justifyContent: "center",
+    color: "#fff",
+    padding: 10
   }
 });

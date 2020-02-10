@@ -42,6 +42,9 @@ import {
 import TouchID from "react-native-touch-id";
 import Home from "./src/component/home/Home";
 import Login from "./src/component/login/Login";
+import Gallery from "./src/component/gallery/Gallery";
+import AsyncStorage from "./src/component/asyncStorage/AsyncStorage";
+import GetAsyncStorage from "./src/component/asyncStorage/GetAsyncStorage";
 
 const App: () => React$Node = () => {
   const pressHandler = () => {
@@ -60,6 +63,17 @@ const App: () => React$Node = () => {
       <Stack key="root">
         <Scene key="login" component={Login} title="Login" />
         <Scene key="home" component={Home} title="Home" />
+        <Scene key="gallery" component={Gallery} title="Gallery" />
+        <Scene
+          key="asyncStorage"
+          component={AsyncStorage}
+          title="AsyncStorage"
+        />
+        <Scene
+          key="getAsyncStorage"
+          component={GetAsyncStorage}
+          title="GetAsyncStorage"
+        />
       </Stack>
     </Router>
     // <>
