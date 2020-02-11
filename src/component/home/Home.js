@@ -49,6 +49,9 @@ export default class Home extends React.Component {
       case "notification":
         this.props.navigation.navigate("notification");
         break;
+      case "camera":
+        this.props.navigation.navigate("camera");
+        break;
       default:
         break;
     }
@@ -140,5 +143,6 @@ const GridListItems = [
   { key: "notification" },
   { key: "gallery" },
   { key: "async storage" },
-  { key: "layout" }
+  { key: "layout" },
+  { key: "camera" }
 ];
