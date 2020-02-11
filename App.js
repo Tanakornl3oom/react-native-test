@@ -45,6 +45,8 @@ import Login from "./src/component/login/Login";
 import Gallery from "./src/component/gallery/Gallery";
 import AsyncStorage from "./src/component/asyncStorage/AsyncStorage";
 import GetAsyncStorage from "./src/component/asyncStorage/GetAsyncStorage";
+import Layout from "./src/component/layout/Layout";
+import Notification from "./src/component/notification/Notification";
 
 const App: () => React$Node = () => {
   const pressHandler = () => {
@@ -64,6 +66,12 @@ const App: () => React$Node = () => {
         <Scene key="login" component={Login} title="Login" />
         <Scene key="home" component={Home} title="Home" />
         <Scene key="gallery" component={Gallery} title="Gallery" />
+        <Scene key="layout" component={Layout} title="Layout" />
+        <Scene
+          key="notification"
+          component={Notification}
+          title="Notification"
+        />
         <Scene
           key="asyncStorage"
           component={AsyncStorage}

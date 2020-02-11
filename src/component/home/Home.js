@@ -11,7 +11,6 @@ import {
   FlatList
 } from "react-native";
 import TouchID from "react-native-touch-id";
-import Notification from "../notification/Notification";
 import PushNotification from "react-native-push-notification";
 export default class Home extends React.Component {
   constructor(props) {
@@ -19,18 +18,18 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    TouchID.authenticate(
-      "Unlock with your fingerprint",
-      optionalConfigObject
-    ).catch(error => {
-      console.log(error);
-      Alert.alert("Authentication Failed", "", [
-        {
-          text: "OK",
-          onPress: () => this.props.navigation.navigate("login")
-        }
-      ]);
-    });
+    // TouchID.authenticate(
+    //   "Unlock with your fingerprint",
+    //   optionalConfigObject
+    // ).catch(error => {
+    //   console.log(error);
+    //   Alert.alert("Authentication Failed", "", [
+    //     {
+    //       text: "OK",
+    //       onPress: () => this.props.navigation.navigate("login")
+    //     }
+    //   ]);
+    // });
   }
 
   GetGridViewItem(item) {
@@ -44,6 +43,12 @@ export default class Home extends React.Component {
       case "async storage":
         this.props.navigation.navigate("asyncStorage");
         break;
+      case "layout":
+        this.props.navigation.navigate("layout");
+        break;
+      case "notification":
+        this.props.navigation.navigate("notification");
+        break;
       default:
         break;
     }
@@ -52,9 +57,13 @@ export default class Home extends React.Component {
   sendNotification() {
     let date = new Date(Date.now() + 5 * 1000);
 
-    PushNotification.localNotificationSchedule({
-      message: "My Notification Message",
-      date
+    // PushNotification.localNotificationSchedule({
+    //   message: "My Notification Message",
+    //   date
+    // });
+
+    PushNotification.localNotification({
+      message: "My Notification Message"
     });
   }
 
@@ -73,7 +82,6 @@ export default class Home extends React.Component {
           )}
           numColumns={2}
         />
-        <Notification />
       </View>
     );
   }
@@ -103,7 +111,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    height: 100,
+    height: 50,
     margin: 5,
     backgroundColor: "#0391D7"
   },
@@ -129,7 +137,8 @@ const optionalConfigObject = {
 };
 
 const GridListItems = [
-  { key: "send notification" },
+  { key: "notification" },
   { key: "gallery" },
-  { key: "async storage" }
+  { key: "async storage" },
+  { key: "layout" }
 ];

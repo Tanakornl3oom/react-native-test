@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import SplashScreen from "react-native-splash-screen";
+import Notification from "../../Utils/Notification";
 
 export default class Login extends Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ export default class Login extends Component {
         >
           <Text style={styles.text}>Login</Text>
         </TouchableHighlight>
+        <Notification />
       </View>
     );
   }
