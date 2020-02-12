@@ -63,7 +63,7 @@ export default class Notification extends Component {
               style={styles.button}
               onPress={this.handleNotification}
             >
-              <Text>click to send notification</Text>
+              <Text style={styles.text}>click to send notification</Text>
             </TouchableHighlight>
           </View>
 
@@ -85,8 +85,10 @@ export default class Notification extends Component {
               <Text
                 style={{
                   paddingTop: 5,
-                  paddingRight: 10,
-                  paddingLeft: 5
+                  paddingRight: 5,
+                  paddingLeft: 5,
+                  fontSize: 15,
+                  fontWeight: "bold"
                 }}
               >
                 seconds :
@@ -110,7 +112,9 @@ export default class Notification extends Component {
                 style={styles.button}
                 onPress={this.handleSchedule}
               >
-                <Text>click to send notification schedule</Text>
+                <Text style={styles.text}>
+                  click to send notification schedule
+                </Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -132,5 +136,12 @@ const styles = StyleSheet.create({
     height: 50,
     margin: 5,
     backgroundColor: "#0391D7"
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    justifyContent: "center",
+    color: "#fff",
+    padding: 10
   }
 });

@@ -9,10 +9,25 @@ import {
 
 import SplashScreen from "react-native-splash-screen";
 import Notification from "../../Utils/Notification";
-
+import * as Keychain from "react-native-keychain";
 export default class Login extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     SplashScreen.hide();
+
+    try {
+      const credentials = await Keychain.getGenericPassword();
+      if (credentials) {
+        console.log("credentials", credentials);
+        console.log(">1 lanuch");
+      } else {
+        console.log("first lanuch");
+        await Keychain.setGenericPassword("firstLanuch", "true").catch(err => {
+          console.log("error save password");
+        });
+      }
+    } catch (err) {
+      console.log("can't get credentials");
+    }
   }
 
   render() {

@@ -18,25 +18,22 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    // TouchID.authenticate(
-    //   "Unlock with your fingerprint",
-    //   optionalConfigObject
-    // ).catch(error => {
-    //   console.log(error);
-    //   Alert.alert("Authentication Failed", "", [
-    //     {
-    //       text: "OK",
-    //       onPress: () => this.props.navigation.navigate("login")
-    //     }
-    //   ]);
-    // });
+    TouchID.authenticate(
+      "Unlock with your fingerprint",
+      optionalConfigObject
+    ).catch(error => {
+      console.log(error);
+      Alert.alert("Authentication Failed", "", [
+        {
+          text: "OK",
+          onPress: () => this.props.navigation.navigate("login")
+        }
+      ]);
+    });
   }
 
   GetGridViewItem(item) {
     switch (item) {
-      case "send notification":
-        this.sendNotification();
-        break;
       case "gallery":
         this.props.navigation.navigate("gallery");
         break;
@@ -55,19 +52,6 @@ export default class Home extends React.Component {
       default:
         break;
     }
-  }
-
-  sendNotification() {
-    let date = new Date(Date.now() + 5 * 1000);
-
-    // PushNotification.localNotificationSchedule({
-    //   message: "My Notification Message",
-    //   date
-    // });
-
-    PushNotification.localNotification({
-      message: "My Notification Message"
-    });
   }
 
   render() {

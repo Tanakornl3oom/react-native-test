@@ -45,30 +45,20 @@ import Login from "./src/component/login/Login";
 import Gallery from "./src/component/gallery/Gallery";
 import AsyncStorage from "./src/component/asyncStorage/AsyncStorage";
 import GetAsyncStorage from "./src/component/asyncStorage/GetAsyncStorage";
-import Layout from "./src/component/layout/Layout";
+import FlexBox from "./src/component/layout/FlexBox";
 import Notification from "./src/component/notification/Notification";
 import Camera from "./src/component/camera/Camera";
 
 const App: () => React$Node = () => {
-  const pressHandler = () => {
-    TouchID.authenticate("to demo this react-native component")
-      .then(success => {
-        Alert.alert("Authenticated Successfully");
-      })
-      .catch(error => {
-        console.log(error);
-        Alert.alert("Authentication Failed");
-      });
-  };
-
   return (
     <Router>
       <Stack key="root">
         <Scene key="login" component={Login} title="Login" />
         <Scene key="home" component={Home} title="Home" />
         <Scene key="gallery" component={Gallery} title="Gallery" />
-        <Scene key="layout" component={Layout} title="Layout" />
+        <Scene key="layout" component={FlexBox} title="Layout" />
         <Scene key="camera" component={Camera} title="Camera" />
+        <Scene key="flexBox" component={FlexBox} title="FlexBox" />
         <Scene
           key="notification"
           component={Notification}

@@ -72,3 +72,14 @@ AppDelegate.h
 - https://facebook.github.io/react-native/docs/asyncstorage
 
 ## camera
+
+- https://github.com/react-native-community/react-native-camera
+- https://github.com/react-native-community/react-native-camera/issues/1449
+
+## cameraroll
+
+- https://github.com/react-native-community/react-native-cameraroll#readme
+
+## check first lauch
+
+- https://github.com/oblador/react-native-keychain
